@@ -3,22 +3,23 @@ package sa;
 import lotr.common.entity.npc.LOTREntitySauron;
 import net.minecraft.world.World;
 
-public class SAEntitySauron
-extends LOTREntitySauron {
+public class SAEntitySauron extends LOTREntitySauron {
 	public SAEntitySauron(World world) {
 		super(world);
 	}
 
-	public void onLivingUpdate() {
-		super.onLivingUpdate();
-		if (!this.worldObj.isRemote && this.getHealth() < this.getMaxHealth() && this.ticksExisted % 10 == 0) {
-			this.setHealth(this.getHealth() - 2.0f);
-			this.heal(0.5f);
-		}
-	}
-
+	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(npcAttackDamage).setBaseValue(10.0);
+		getEntityAttribute(npcAttackDamage).setBaseValue(10.0);
+	}
+
+	@Override
+	public void onLivingUpdate() {
+		super.onLivingUpdate();
+		if (!worldObj.isRemote && getHealth() < getMaxHealth() && ticksExisted % 10 == 0) {
+			setHealth(getHealth() - 2.0f);
+			heal(0.5f);
+		}
 	}
 }
