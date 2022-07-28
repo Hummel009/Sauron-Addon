@@ -1,9 +1,11 @@
+package sa;
+
 import lotr.common.entity.npc.LOTREntitySauron;
 import net.minecraft.world.World;
 
-public class LOTREntitySauronExtended
+public class SAEntitySauron
 extends LOTREntitySauron {
-    public LOTREntitySauronExtended(World world) {
+    public SAEntitySauron(World world) {
         super(world);
     }
 
@@ -20,4 +22,3 @@ extends LOTREntitySauron {
         this.getEntityAttribute(npcAttackDamage).setBaseValue(10.0);
     }
 }
-
