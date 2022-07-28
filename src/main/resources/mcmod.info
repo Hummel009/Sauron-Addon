@@ -3,6 +3,7 @@
 		"authorList": "Hummel009",
 		"credits": "Hummel009",
 		"description": "This mod returns Sauron from the Lord of the Rings Mod",
+		"mcversion": "1.7.10",
 		"modid": "sa",
 		"name": "Sauron Addon",
 		"url": "https://github.com/Hummel009",
