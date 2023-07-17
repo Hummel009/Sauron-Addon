@@ -9,7 +9,7 @@ public class SAEntitySauron extends LOTREntitySauron {
 	}
 
 	@Override
-	protected void applyEntityAttributes() {
+	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(npcAttackDamage).setBaseValue(10.0);
 	}
