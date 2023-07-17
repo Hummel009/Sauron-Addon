@@ -1,3 +1,1 @@
-Hello everybody!
-
-I am the developer of different mods for Minecraft, including this one, and I have posted the latest source code here. I hope, that somebody can find this useful as a basis for your own mods.
+Простенький аддон к моду "Властелин колец" для Minecraft 1.7.10. Добавляет, а точнее, возвращает обратно удалённого ещё в 2014 году моба - Саурона.
