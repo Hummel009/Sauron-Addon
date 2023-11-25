@@ -16,4 +16,4 @@ https://lotrminecraftmod.fandom.com/ru/wiki/Sauron_Addon - статья, в ко
 
 ## Установка
 
-Все репозитории я оформляю в одном ключе, так что смотрите [общую инструкцию](https://github.com/Hummel009/Legendary-Item) для установки любого Gradle-проекта.
+Все репозитории я оформляю в одном ключе, так что смотрите [общую инструкцию](https://github.com/Hummel009/Legendary-Item#readme) для установки любого Gradle-проекта.
