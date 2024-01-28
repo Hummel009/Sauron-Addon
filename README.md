@@ -15,8 +15,6 @@
 
 Sauron Addon - аддон к моду "Властелин колец" для Minecraft. Возвращает в игру старого удалённого босса - Саурона.
 
-https://lotrminecraftmod.fandom.com/ru/wiki/Sauron_Addon - статья, в которой подробно описан мод.
-
 <!----------------------------------------------------------------------------->
 
 [code_smells_badge]: https://sonarcloud.io/api/project_badges/measure?project=Hummel009_Sauron-Addon&metric=code_smells
