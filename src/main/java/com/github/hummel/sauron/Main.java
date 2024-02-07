@@ -4,7 +4,6 @@ import com.github.hummel.sauron.entity.EntitySauron;
 import com.github.hummel.sauron.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import lotr.common.entity.LOTREntities;
 
@@ -14,12 +13,8 @@ public class Main {
 	private static CommonProxy proxy;
 
 	@Mod.EventHandler
-	public void onInit(FMLInitializationEvent event) {
-		LOTREntities.registerCreature(EntitySauron.class, "Sauron", 1000, 0, 0);
-	}
-
-	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		LOTREntities.registerCreature(EntitySauron.class, "Sauron", 1000, 0, 0);
 		proxy.preInit(event);
 	}
 }
