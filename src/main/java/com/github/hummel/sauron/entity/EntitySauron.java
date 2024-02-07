@@ -7,7 +7,9 @@ import lotr.common.entity.npc.LOTREntityNPC;
 import lotr.common.fac.LOTRFaction;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -42,10 +44,9 @@ public class EntitySauron extends LOTREntityNPC {
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(300.0);
-		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25);
-		getEntityAttribute(npcAttackDamage).setBaseValue(10.0);
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(500.0);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.2);
+		getEntityAttribute(npcAttackDamage).setBaseValue(6.0);
 	}
 
 	@Override
@@ -88,26 +89,6 @@ public class EntitySauron extends LOTREntityNPC {
 				worldObj.spawnParticle("smoke", d, d1, d2, d8, d9, d10);
 			}
 		}
-	}
-
-	@Override
-	public void knockBack(Entity entity, float f, double d, double d1) {
-		super.knockBack(entity, f, d, d1);
-		motionX /= 4.0;
-		motionY /= 4.0;
-		motionZ /= 4.0;
-	}
-
-	@Override
-	public boolean attackEntityAsMob(Entity entity) {
-		if (super.attackEntityAsMob(entity)) {
-			EntityLivingBase attackTarget = getAttackTarget();
-			float attackDamage = (float) getEntityAttribute(LOTREntityNPC.npcAttackDamage).getAttributeValue();
-			float knockbackModifier = 0.25F * attackDamage;
-			entity.addVelocity(-MathHelper.sin(rotationYaw * 3.1415927F / 180.0F) * knockbackModifier * 0.5F, knockbackModifier * 0.1, MathHelper.cos(rotationYaw * 3.1415927F / 180.0F) * knockbackModifier * 0.5F);
-			return true;
-		}
-		return false;
 	}
 
 	@Override

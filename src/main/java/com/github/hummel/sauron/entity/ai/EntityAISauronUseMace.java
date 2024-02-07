@@ -13,54 +13,54 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class EntityAISauronUseMace extends EntityAIBase {
-	private final EntitySauron theSauron;
-	private final World theWorld;
+	private final EntitySauron sauron;
+	private final World world;
 	private int attackTick;
 
 	public EntityAISauronUseMace(EntitySauron sauron) {
-		theSauron = sauron;
-		theWorld = theSauron.worldObj;
+		this.sauron = sauron;
+		world = this.sauron.worldObj;
 		setMutexBits(3);
 	}
 
 	@Override
 	public boolean shouldExecute() {
 		int targets = 0;
-		List<EntityLivingBase> nearbyEntities = theWorld.getEntitiesWithinAABB(EntityLivingBase.class, theSauron.boundingBox.expand(6.0, 6.0, 6.0));
+		List<EntityLivingBase> nearbyEntities = world.getEntitiesWithinAABB(EntityLivingBase.class, sauron.boundingBox.expand(6.0, 6.0, 6.0));
 
 		for (EntityLivingBase entity : nearbyEntities) {
 			if (entity.isEntityAlive()) {
 				if (entity instanceof EntityPlayer) {
 					EntityPlayer entityplayer = (EntityPlayer) entity;
-					if (!entityplayer.capabilities.isCreativeMode && (LOTRLevelData.getData(entityplayer).getAlignment(theSauron.getFaction()) < 0.0F || theSauron.getAttackTarget() == entityplayer)) {
+					if (!entityplayer.capabilities.isCreativeMode && (LOTRLevelData.getData(entityplayer).getAlignment(sauron.getFaction()) < 0.0F || sauron.getAttackTarget() == entityplayer)) {
 						++targets;
 					}
-				} else if (theSauron.getFaction().isBadRelation(LOTRMod.getNPCFaction(entity))) {
+				} else if (sauron.getFaction().isBadRelation(LOTRMod.getNPCFaction(entity))) {
 					++targets;
-				} else if (theSauron.getAttackTarget() == entity || entity instanceof EntityLiving && ((EntityLiving) entity).getAttackTarget() == theSauron) {
+				} else if (sauron.getAttackTarget() == entity || entity instanceof EntityLiving && ((EntityLiving) entity).getAttackTarget() == sauron) {
 					++targets;
 				}
 			}
 		}
 
-		return targets >= 4 || targets > 0 && theSauron.getRNG().nextInt(100) == 0;
+		return targets >= 0;
 	}
 
 	@Override
 	public boolean continueExecuting() {
-		return theSauron.getIsUsingMace();
+		return sauron.getIsUsingMace();
 	}
 
 	@Override
 	public void startExecuting() {
 		attackTick = 40;
-		theSauron.setIsUsingMace(true);
+		sauron.setIsUsingMace(true);
 	}
 
 	@Override
 	public void resetTask() {
 		attackTick = 40;
-		theSauron.setIsUsingMace(false);
+		sauron.setIsUsingMace(false);
 	}
 
 	@Override
@@ -68,9 +68,8 @@ public class EntityAISauronUseMace extends EntityAIBase {
 		attackTick = Math.max(attackTick - 1, 0);
 		if (attackTick == 0) {
 			attackTick = 40;
-			LOTRItemSauronMace.useSauronMace(theSauron.getEquipmentInSlot(0), theWorld, theSauron);
-			theSauron.setIsUsingMace(false);
+			LOTRItemSauronMace.useSauronMace(sauron.getEquipmentInSlot(0), world, sauron);
+			sauron.setIsUsingMace(false);
 		}
-
 	}
 }
