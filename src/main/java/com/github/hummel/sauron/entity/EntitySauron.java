@@ -45,6 +45,7 @@ public class EntitySauron extends LOTREntityNPC {
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(500.0);
+		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.2);
 		getEntityAttribute(npcAttackDamage).setBaseValue(6.0);
 	}
