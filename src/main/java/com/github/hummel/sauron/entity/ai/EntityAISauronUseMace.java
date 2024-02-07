@@ -43,7 +43,7 @@ public class EntityAISauronUseMace extends EntityAIBase {
 			}
 		}
 
-		return targets >= 1;
+		return targets >= 4 && sauron.getRNG().nextInt(10) == 0;
 	}
 
 	@Override
