@@ -43,7 +43,7 @@ public class EntityAISauronUseMace extends EntityAIBase {
 			}
 		}
 
-		return targets >= 0;
+		return targets >= 1;
 	}
 
 	@Override
