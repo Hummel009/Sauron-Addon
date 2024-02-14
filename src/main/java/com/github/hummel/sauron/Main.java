@@ -1,11 +1,10 @@
 package com.github.hummel.sauron;
 
-import com.github.hummel.sauron.entity.EntitySauron;
+import com.github.hummel.sauron.init.Entities;
 import com.github.hummel.sauron.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import lotr.common.entity.LOTREntities;
 
 @Mod(modid = "sauron", dependencies = "required-after:lotr", useMetadata = true)
 public class Main {
@@ -14,7 +13,7 @@ public class Main {
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		LOTREntities.registerCreature(EntitySauron.class, "Sauron", 1000, 0, 0);
+		Entities.preInit();
 
 		proxy.preInit();
 	}
